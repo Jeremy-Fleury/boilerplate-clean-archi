@@ -4,14 +4,17 @@
 	"author": "jfleury",
 	"scripts": {
 		"format": "biome format",
+		"format:fix": "biome format --write",
 		"lint": "pnpm biome lint",
+		"lint:fix": "pnpm biome lint --write",
 		"check": "biome check",
+		"check:fix": "biome check --write",
 		"prepare": "husky"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.2",
-		"@commitlint/cli": "^19.5.0",
-		"@commitlint/config-conventional": "^19.5.0",
+		"@commitlint/cli": "19.5.0",
+		"@commitlint/config-conventional": "19.5.0",
 		"husky": "9.1.6"
 	}
 }
