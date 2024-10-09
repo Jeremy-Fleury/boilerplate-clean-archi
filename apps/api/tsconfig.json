@@ -1,6 +1,13 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
+		"baseUrl": "./src",
+		"paths": {
+			"@domain/*": ["domain/*"],
+			"@application/*": ["application/*"],
+			"@infrastructure/*": ["infrastructure/*"],
+			"@interface/*": ["interface/*"]
+		},
 		"declaration": true,
 		"removeComments": true,
 		"emitDecoratorMetadata": true,
@@ -9,7 +16,6 @@
 		"target": "ES2021",
 		"sourceMap": true,
 		"outDir": "./dist",
-		"baseUrl": "./",
 		"incremental": true,
 		"strict": true,
 		"skipLibCheck": true,
