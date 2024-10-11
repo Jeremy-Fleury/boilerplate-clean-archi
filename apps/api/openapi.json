@@ -20,7 +20,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/User"
+									"$ref": "#/components/schemas/UserOutputDto"
 								}
 							}
 						}
@@ -38,7 +38,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/Function"
+								"$ref": "#/components/schemas/CreateUserInputDto"
 							}
 						}
 					}
@@ -62,42 +62,37 @@
 	"servers": [],
 	"components": {
 		"schemas": {
-			"Uuid": {
-				"type": "object",
-				"properties": {}
-			},
-			"Email": {
-				"type": "object",
-				"properties": {}
-			},
-			"HashPassword": {
-				"type": "object",
-				"properties": {}
-			},
-			"User": {
+			"UserOutputDto": {
 				"type": "object",
 				"properties": {
 					"uuid": {
-						"$ref": "#/components/schemas/Uuid"
+						"type": "string",
+						"description": "The uuid of the user",
+						"example": "123e4567-e89b-12d3-a456-426614174000"
 					},
 					"email": {
-						"$ref": "#/components/schemas/Email"
-					},
-					"hashPassword": {
-						"$ref": "#/components/schemas/HashPassword"
-					},
-					"firstName": {
-						"type": "string"
-					},
-					"lastName": {
-						"type": "string"
+						"type": "string",
+						"description": "The email address of the user",
+						"example": "user@example.com"
 					}
 				},
-				"required": ["uuid", "email", "hashPassword", "firstName", "lastName"]
+				"required": ["uuid", "email"]
 			},
-			"Function": {
+			"CreateUserInputDto": {
 				"type": "object",
-				"properties": {}
+				"properties": {
+					"email": {
+						"type": "string",
+						"description": "The email address of the user",
+						"example": "user@example.com"
+					},
+					"password": {
+						"type": "string",
+						"description": "The password for the user account",
+						"example": "!Password1234"
+					}
+				},
+				"required": ["email", "password"]
 			}
 		}
 	}

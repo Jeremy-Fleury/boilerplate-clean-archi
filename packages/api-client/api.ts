@@ -26,39 +26,40 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface User
+ * @interface CreateUserInputDto
  */
-export interface User {
+export interface CreateUserInputDto {
     /**
-     * 
-     * @type {object}
-     * @memberof User
-     */
-    'uuid': object;
-    /**
-     * 
-     * @type {object}
-     * @memberof User
-     */
-    'email': object;
-    /**
-     * 
-     * @type {object}
-     * @memberof User
-     */
-    'hashPassword': object;
-    /**
-     * 
+     * The email address of the user
      * @type {string}
-     * @memberof User
+     * @memberof CreateUserInputDto
      */
-    'firstName': string;
+    'email': string;
     /**
-     * 
+     * The password for the user account
      * @type {string}
-     * @memberof User
+     * @memberof CreateUserInputDto
      */
-    'lastName': string;
+    'password': string;
+}
+/**
+ * 
+ * @export
+ * @interface UserOutputDto
+ */
+export interface UserOutputDto {
+    /**
+     * The uuid of the user
+     * @type {string}
+     * @memberof UserOutputDto
+     */
+    'uuid': string;
+    /**
+     * The email address of the user
+     * @type {string}
+     * @memberof UserOutputDto
+     */
+    'email': string;
 }
 
 /**
@@ -69,13 +70,13 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateUserInputDto} createUserInputDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        userControllerCreate: async (body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('userControllerCreate', 'body', body)
+        userControllerCreate: async (createUserInputDto: CreateUserInputDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createUserInputDto' is not null or undefined
+            assertParamExists('userControllerCreate', 'createUserInputDto', createUserInputDto)
             const localVarPath = `/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -95,7 +96,7 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createUserInputDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -147,12 +148,12 @@ export const UserApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateUserInputDto} createUserInputDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async userControllerCreate(body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.userControllerCreate(body, options);
+        async userControllerCreate(createUserInputDto: CreateUserInputDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.userControllerCreate(createUserInputDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserApi.userControllerCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -163,7 +164,7 @@ export const UserApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async userControllerGetUserByEmail(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async userControllerGetUserByEmail(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutputDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.userControllerGetUserByEmail(email, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserApi.userControllerGetUserByEmail']?.[localVarOperationServerIndex]?.url;
@@ -181,12 +182,12 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateUserInputDto} createUserInputDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        userControllerCreate(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.userControllerCreate(body, options).then((request) => request(axios, basePath));
+        userControllerCreate(createUserInputDto: CreateUserInputDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.userControllerCreate(createUserInputDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -194,7 +195,7 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        userControllerGetUserByEmail(email: string, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+        userControllerGetUserByEmail(email: string, options?: RawAxiosRequestConfig): AxiosPromise<UserOutputDto> {
             return localVarFp.userControllerGetUserByEmail(email, options).then((request) => request(axios, basePath));
         },
     };
@@ -209,13 +210,13 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
 export class UserApi extends BaseAPI {
     /**
      * 
-     * @param {object} body 
+     * @param {CreateUserInputDto} createUserInputDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    public userControllerCreate(body: object, options?: RawAxiosRequestConfig) {
-        return UserApiFp(this.configuration).userControllerCreate(body, options).then((request) => request(this.axios, this.basePath));
+    public userControllerCreate(createUserInputDto: CreateUserInputDto, options?: RawAxiosRequestConfig) {
+        return UserApiFp(this.configuration).userControllerCreate(createUserInputDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
