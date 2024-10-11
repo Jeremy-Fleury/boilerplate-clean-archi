@@ -1,0 +1,104 @@
+{
+	"openapi": "3.0.0",
+	"paths": {
+		"/user/{email}": {
+			"get": {
+				"operationId": "UserController_getUserByEmail",
+				"parameters": [
+					{
+						"name": "email",
+						"required": true,
+						"in": "path",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					}
+				},
+				"tags": ["User"]
+			}
+		},
+		"/user": {
+			"post": {
+				"operationId": "UserController_create",
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Function"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": ""
+					}
+				},
+				"tags": ["User"]
+			}
+		}
+	},
+	"info": {
+		"title": "Awesome Service API",
+		"description": "",
+		"version": "2.0",
+		"contact": {}
+	},
+	"tags": [],
+	"servers": [],
+	"components": {
+		"schemas": {
+			"Uuid": {
+				"type": "object",
+				"properties": {}
+			},
+			"Email": {
+				"type": "object",
+				"properties": {}
+			},
+			"HashPassword": {
+				"type": "object",
+				"properties": {}
+			},
+			"User": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"$ref": "#/components/schemas/Uuid"
+					},
+					"email": {
+						"$ref": "#/components/schemas/Email"
+					},
+					"hashPassword": {
+						"$ref": "#/components/schemas/HashPassword"
+					},
+					"firstName": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					}
+				},
+				"required": ["uuid", "email", "hashPassword", "firstName", "lastName"]
+			},
+			"Function": {
+				"type": "object",
+				"properties": {}
+			}
+		}
+	}
+}

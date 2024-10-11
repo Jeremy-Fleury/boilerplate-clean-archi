@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15.4
-    container_name: postgres
+    container_name: database
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -13,6 +11,15 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
+
+  openapi-generator:
+    container_name: openapi-generator
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.openapi
+    volumes:
+      - ./:/local
+      - ./scripts:/scripts
 
 volumes:
   postgres_data:

@@ -7,8 +7,10 @@ import type { User } from "@domain/user/entities/user.entity";
 import type { CreateUserInputDto } from "@infrastructure/user/dtos/create-user-input.dto";
 import { CREATE_USER_USE_CASE, GET_USER_BY_EMAIL_USE_CASE } from "@infrastructure/user/modules/user.token";
 import { Body, Controller, Get, Inject, Param, Post } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 
-@Controller("users")
+@ApiTags("User")
+@Controller("user")
 export class UserController {
 	constructor(
 		@Inject(CREATE_USER_USE_CASE)
@@ -18,7 +20,7 @@ export class UserController {
 	) {}
 
 	@Get(":email")
-	async get(@Param("email") email: string): Promise<User> {
+	async getUserByEmail(@Param("email") email: string): Promise<User> {
 		return this.getUserByEmailUseCase.execute(new Email(email));
 	}
 
