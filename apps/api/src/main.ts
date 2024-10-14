@@ -9,8 +9,17 @@ async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
 
 	app.useGlobalFilters(new GlobalExceptionFilter());
-
-	const config = new DocumentBuilder().setTitle("Awesome Service API").setVersion("2.0").build();
+	app.enableCors({
+		origin: ["http://localhost:3000"],
+		methods: "GET,POST,PUT,DELETE",
+		allowedHeaders: "Content-Type,Authorization",
+		credentials: true,
+	});
+	const config = new DocumentBuilder()
+		.setTitle("Awesome Service API")
+		.setVersion("2.0")
+		.addServer("http://localhost:3001", "Local server")
+		.build();
 
 	const document = SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup("api", app, document);

@@ -1,8 +1,8 @@
-import { Configuration, UserApi } from "@org/api-client";
+import { openapiConfig } from "@/modules/shared/services/openapi-config.service";
 import type { CreateUserInputDto } from "@org/api-client";
+import { UserApi } from "@org/api-client/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-const openapiConfig = new Configuration();
 const userApi = new UserApi(openapiConfig);
 
 export const useGetUserByEmail = (email: string) => {

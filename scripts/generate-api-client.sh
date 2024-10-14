@@ -9,7 +9,10 @@ openapi-generator-cli generate \
 
 cd /local/packages/api-client
 
-pnpm install
-pnpm run build
+rm -rf ./dist
+
+npm install
+
+npm run build
 
 echo "Génération terminée."

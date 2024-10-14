@@ -59,7 +59,12 @@
 		"contact": {}
 	},
 	"tags": [],
-	"servers": [],
+	"servers": [
+		{
+			"url": "http://localhost:3001",
+			"description": "Local server"
+		}
+	],
 	"components": {
 		"schemas": {
 			"UserOutputDto": {
