@@ -1,6 +1,6 @@
-import type { UserFactoryService } from "@application/user/services/user-factory.service";
-import type { ICreateUser } from "@domain/user/interface/create-user.interface";
-import type { IUserRepository } from "@domain/user/repositories/user.repository.interface";
+import type { UserFactoryService } from "application/user/services/user-factory.service";
+import type { ICreateUser } from "domain/user/interface/create-user.interface";
+import type { IUserRepository } from "domain/user/repositories/user.repository.interface";
 
 export class CreateUserUseCase {
 	constructor(

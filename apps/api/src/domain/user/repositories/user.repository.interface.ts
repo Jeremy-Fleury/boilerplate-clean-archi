@@ -1,5 +1,5 @@
-import type { Email } from "@domain/shared/value-objects/email.vo";
-import type { User } from "@domain/user/entities/user.entity";
+import type { Email } from "domain/shared/value-objects/email.vo";
+import type { User } from "domain/user/entities/user.entity";
 
 export interface IUserRepository {
 	findByEmail(email: Email): Promise<User | null>;

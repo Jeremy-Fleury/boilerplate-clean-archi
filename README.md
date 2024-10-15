@@ -2,13 +2,14 @@
 
 ⚠️ Under Construction: This boilerplate is currently under development. Some features might be poorly implemented or not work correctly.
 
+##
 ## Description
 
 Welcome to the Clean Architecture Boilerplate, a full-stack template designed to kickstart your next web application with a scalable and maintainable foundation. This boilerplate follows the principles of Clean Architecture, promoting separation of concerns and testability.
 
 This project integrates a modern React frontend with a NestJS backend, utilizing a suite of powerful tools and libraries to streamline development and ensure code quality.
 
-
+##
 ## Table of Contents
 
 - [Features](#features)
@@ -16,7 +17,7 @@ This project integrates a modern React frontend with a NestJS backend, utilizing
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 
-
+##
 ## Features
 
 - Modular Architecture: Clean separation between frontend and backend, adhering to Clean Architecture principles.
@@ -26,7 +27,7 @@ This project integrates a modern React frontend with a NestJS backend, utilizing
 - Database Integration: Seamless database operations using Prisma ORM.
 - Continuous Integration: Pre-commit hooks with Husky, code formatting with Biome, and commit message linting with Commitlint.
 
-
+##
 ## Tech Stack
 
 ### Frontend
@@ -52,7 +53,7 @@ This project integrates a modern React frontend with a NestJS backend, utilizing
 - [Commitlint](https://commitlint.js.org/) - A library for managing commit messages.
 - [Conventional Commits](https://conventionalcommits.org/) - A specification for managing commit messages.
 
-
+##
 ## Getting Started
 
 ### Prerequisites

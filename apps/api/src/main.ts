@@ -1,9 +1,9 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { GlobalExceptionFilter } from "@infrastructure/app/filters/global-exception.filter";
-import { AppModule } from "@infrastructure/app/modules/app.module";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { GlobalExceptionFilter } from "infrastructure/app/filters/global-exception.filter";
+import { AppModule } from "infrastructure/app/modules/app.module";
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);

@@ -1,4 +1,4 @@
-import { DomainException } from "@domain/shared/exceptions/domain-exception";
+import { DomainException } from "domain/shared/exceptions/domain-exception";
 
 export class Email {
 	constructor(public readonly value: string) {

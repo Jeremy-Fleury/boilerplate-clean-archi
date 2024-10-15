@@ -1,23 +1,23 @@
-import type { IHashService } from "@application/shared/interfaces/hash.interface";
-import type { IUuidService } from "@application/shared/interfaces/uuid.interface";
-import { UserFactoryService } from "@application/user/services/user-factory.service";
-import { CreateUserUseCase } from "@application/user/use-cases/create-user.use-cases";
-import { GetUserByEmailUseCase } from "@application/user/use-cases/get-user-by-email.use-cases";
-import type { IUserRepository } from "@domain/user/repositories/user.repository.interface";
-import { PrismaModule } from "@infrastructure/prisma/prisma.module";
-import { HashServiceImpl } from "@infrastructure/shared/services/hash.service";
-import { UuidGeneratorImpl } from "@infrastructure/shared/services/uuid.service";
-import { UserController } from "@infrastructure/user/controllers/user.controller";
+import { Module } from "@nestjs/common";
+import type { Provider } from "@nestjs/common";
+import type { IHashService } from "application/shared/interfaces/hash.interface";
+import type { IUuidService } from "application/shared/interfaces/uuid.interface";
+import { UserFactoryService } from "application/user/services/user-factory.service";
+import { CreateUserUseCase } from "application/user/use-cases/create-user.use-cases";
+import { GetUserByEmailUseCase } from "application/user/use-cases/get-user-by-email.use-cases";
+import type { IUserRepository } from "domain/user/repositories/user.repository.interface";
+import { PrismaModule } from "infrastructure/prisma/prisma.module";
+import { HashServiceImpl } from "infrastructure/shared/services/hash.service";
+import { UuidGeneratorImpl } from "infrastructure/shared/services/uuid.service";
+import { UserController } from "infrastructure/user/controllers/user.controller";
 import {
 	CREATE_USER_USE_CASE,
 	GET_USER_BY_EMAIL_USE_CASE,
 	HASH_SERVICE,
 	USER_REPOSITORY,
 	UUID_SERVICE,
-} from "@infrastructure/user/modules/user.token";
-import { UserRepositoryImpl } from "@infrastructure/user/repositories/user.repository.impl";
-import { Module } from "@nestjs/common";
-import type { Provider } from "@nestjs/common";
+} from "infrastructure/user/modules/user.token";
+import { UserRepositoryImpl } from "infrastructure/user/repositories/user.repository.impl";
 
 const infrastructure: Provider[] = [
 	{

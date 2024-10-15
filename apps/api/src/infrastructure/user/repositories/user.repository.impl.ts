@@ -1,10 +1,10 @@
-import { UserFactoryService } from "@application/user/services/user-factory.service";
-import type { Email } from "@domain/shared/value-objects/email.vo";
-import type { Uuid } from "@domain/shared/value-objects/uuid.vo";
-import type { User } from "@domain/user/entities/user.entity";
-import type { IUserRepository } from "@domain/user/repositories/user.repository.interface";
-import { PrismaService } from "@infrastructure/prisma/services/prisma.service";
 import { Inject, Injectable } from "@nestjs/common";
+import { UserFactoryService } from "application/user/services/user-factory.service";
+import type { Email } from "domain/shared/value-objects/email.vo";
+import type { Uuid } from "domain/shared/value-objects/uuid.vo";
+import type { User } from "domain/user/entities/user.entity";
+import type { IUserRepository } from "domain/user/repositories/user.repository.interface";
+import { PrismaService } from "infrastructure/prisma/services/prisma.service";
 
 @Injectable()
 export class UserRepositoryImpl implements IUserRepository {

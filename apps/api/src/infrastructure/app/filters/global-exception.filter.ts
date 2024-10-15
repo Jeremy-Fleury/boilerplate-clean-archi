@@ -1,9 +1,9 @@
-import { ApplicationException } from "@domain/shared/exceptions/application-exception";
-import { DomainException } from "@domain/shared/exceptions/domain-exception";
-import { InfrastructureException } from "@domain/shared/exceptions/infrastructure-exception";
-import { InterfaceException } from "@domain/shared/exceptions/interface-exception";
 import { Catch, HttpStatus } from "@nestjs/common";
 import type { ArgumentsHost, ExceptionFilter } from "@nestjs/common";
+import { ApplicationException } from "domain/shared/exceptions/application-exception";
+import { DomainException } from "domain/shared/exceptions/domain-exception";
+import { InfrastructureException } from "domain/shared/exceptions/infrastructure-exception";
+import { InterfaceException } from "domain/shared/exceptions/interface-exception";
 
 @Catch(Error)
 export class GlobalExceptionFilter implements ExceptionFilter {

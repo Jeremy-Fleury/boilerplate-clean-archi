@@ -1,11 +1,11 @@
-import type { IHashService } from "@application/shared/interfaces/hash.interface";
-import type { IUuidService } from "@application/shared/interfaces/uuid.interface";
-import { Email } from "@domain/shared/value-objects/email.vo";
-import { HashPassword } from "@domain/shared/value-objects/hashPassword.vo";
-import { Uuid } from "@domain/shared/value-objects/uuid.vo";
-import { User } from "@domain/user/entities/user.entity";
-import type { ICreateUser } from "@domain/user/interface/create-user.interface";
-import type { IUserJSON } from "@domain/user/interface/user-json.interface";
+import type { IHashService } from "application/shared/interfaces/hash.interface";
+import type { IUuidService } from "application/shared/interfaces/uuid.interface";
+import { Email } from "domain/shared/value-objects/email.vo";
+import { HashPassword } from "domain/shared/value-objects/hashPassword.vo";
+import { Uuid } from "domain/shared/value-objects/uuid.vo";
+import { User } from "domain/user/entities/user.entity";
+import type { ICreateUser } from "domain/user/interface/create-user.interface";
+import type { IUserJSON } from "domain/user/interface/user-json.interface";
 
 export class UserFactoryService {
 	constructor(

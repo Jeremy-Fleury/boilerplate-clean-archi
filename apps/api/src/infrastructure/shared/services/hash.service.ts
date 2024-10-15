@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
-import type { IHashService } from "@application/shared/interfaces/hash.interface";
 import { Injectable } from "@nestjs/common";
+import type { IHashService } from "application/shared/interfaces/hash.interface";
 
 @Injectable()
 export class HashServiceImpl implements IHashService {
