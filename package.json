@@ -11,7 +11,8 @@
 		"check:fix": "biome check --write",
 		"prepare": "husky",
 		"compose": "docker-compose up -d",
-		"start:dev": "pnpm compose && concurrently \"pnpm --filter client start:dev\" \"pnpm --filter api start:dev\""
+		"start:dev": "pnpm compose && concurrently \"pnpm --filter client start:dev\" \"pnpm --filter api start:dev\"",
+		"test": "pnpm --filter api test"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.2",
